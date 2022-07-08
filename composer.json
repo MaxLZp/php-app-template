@@ -1,0 +1,10 @@
+{
+    "name": "maxl/php-app-template",
+    "authors": [
+        {
+            "name": "MaxLZp",
+            "email": "linenko.maxim@gmail.com"
+        }
+    ],
+    "require": {}
+}
