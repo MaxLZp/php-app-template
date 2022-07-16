@@ -319,8 +319,8 @@ modules.xml
 .phpunit.cache
 
 # PHPUnit
-/app/phpunit.xml
-/phpunit.xml
+#/app/phpunit.xml
+#/phpunit.xml
 
 /testResults/
 
