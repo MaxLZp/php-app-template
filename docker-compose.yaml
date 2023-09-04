@@ -29,6 +29,9 @@ services:
       - MYSQL_DATABASE=app_db
       - MYSQL_USER=user
       - MYSQL_PASSWORD=password
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    ports:
+      - "3306:3306"
     networks:
       - app_network
 
@@ -40,7 +43,7 @@ services:
       - 8081:80
     environment:
       PMA_HOST: app_docker_mysql
-      PMA_USER: user
+      PMA_USER: root
       PMA_PASSWORD: password
     networks:
       - app_network
