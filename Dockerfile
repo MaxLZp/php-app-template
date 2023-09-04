@@ -30,6 +30,18 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
+# xdebug
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
+RUN install-php-extensions xdebug
+ENV PHP_IDE_CONFIG 'serverName=docker-localhost'
+RUN echo "xdebug.mode=develop,debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.start_with_request = yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.client_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.log=/var/log/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN #echo "xdebug.idekey = PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.idekey = DOCKER" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 # Set working directory
 WORKDIR /var/www
 
