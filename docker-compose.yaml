@@ -17,6 +17,18 @@ services:
     networks:
       - app_network
 
+  node:
+    build:
+      context: ./docker-compose
+      dockerfile: node.Dockerfile
+    image: app_node
+    container_name: app_node
+    volumes:
+      - ./:/var/www
+      - ./node_modules:/var/www/node_modules
+    networks:
+      - app_network
+
   mysql:
     image: mysql:5.7
     container_name: app_docker_mysql
@@ -49,7 +61,7 @@ services:
       - app_network
 
   nginx:
-    image: nginx:latest
+    image: nginx:alpine
     container_name: app_docker_nginx
     restart: always
     ports:
