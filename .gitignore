@@ -3,6 +3,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,phpunit,phpstorm+all,phpstorm,node,composer
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,phpunit,phpstorm+all,phpstorm,node,composer
 
+### Complied javascript
+/public/js/*
+
 ### Composer ###
 composer.phar
 /vendor/
