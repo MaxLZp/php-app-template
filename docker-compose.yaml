@@ -82,6 +82,14 @@ services:
     networks:
       - app_network
 
+  composer:
+    container_name: app_composer
+    build:
+      context: docker-compose
+      dockerfile: composer.Dockerfile
+    volumes:
+      - ./:/var/www
+
 networks:
   app_network:
     driver: bridge
