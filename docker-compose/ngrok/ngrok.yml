@@ -1,0 +1,9 @@
+version: 2
+authtoken: 2LBrCCfiBR4k25Ry9Qr3yfZsVYx_3SmNr8qGKbE1iKacJDgV3
+region: eu
+web_addr: localhost:4040
+tunnels:
+  webhook:
+    proto: http
+    addr: host.docker.internal:8080
+    host_header: "rewrite"
