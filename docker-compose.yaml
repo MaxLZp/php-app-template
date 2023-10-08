@@ -90,6 +90,24 @@ services:
     volumes:
       - ./:/var/www
 
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: doctrine_docker_ngrok
+    restart: unless-stopped
+    depends_on:
+      - nginx
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./docker-compose/ngrok/ngrok.yml:/etc/ngrok.yml
+    ports:
+      - 4040:4040
+    networks:
+      - doctrine_network
+
 networks:
   app_network:
     driver: bridge
