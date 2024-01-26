@@ -89,6 +89,8 @@ services:
       dockerfile: composer.Dockerfile
     volumes:
       - ./:/var/www
+    networks:
+      - app_network
 
   ngrok:
     image: ngrok/ngrok:latest
