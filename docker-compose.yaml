@@ -81,6 +81,7 @@ services:
       - 8025:8025
     networks:
       - app_network
+    profiles: ['mailhog']
 
   composer:
     container_name: app_docker_composer
@@ -109,6 +110,7 @@ services:
       - 4040:4040
     networks:
       - app_network
+    profiles: ['ngrok']
 
   redis:
     image: redis:latest
@@ -124,6 +126,7 @@ services:
       - REDIS_PORT=6379
     networks:
       - app_network
+    profiles: ['redis']
 
 networks:
   app_network:
